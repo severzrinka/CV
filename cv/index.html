@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zrinka Sever</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--=============== FONT AWESOME ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+    <nav id="navbar" class="navbar"><a href="#"></a></nav>
+
+    <div class="container">
+        <!--=============== NAVIGATION MENU ===============-->
+
+        <div class="menu">
+            <a href="#welcome-section" class="menu-icon fa-solid fa-house"></a>
+            <a href="#about" class="menu-icon fa-solid fa-user"></a>
+            <a href="#projects" class="menu-icon fa-solid fa-code"></a>
+            <a href="#experience" class="menu-icon fa-solid fa-briefcase"></a>
+            <a href="#education" class="menu-icon fa-solid fa-graduation-cap"></a>
+
+        </div>
+
+        <!--=============== MAIN "WINDOW" ===============-->
+
+        <div class="portfolio">
+            <!--=============== HEADER SECTION ===============-->
+
+            <section class="header">
+                <img class="header-img"
+                    src="https://www.publicdomainpictures.net/pictures/60000/nahled/woman-in-business-suit.jpg"
+                    alt="" />
+                <h1>Zrinka Sever</h1>
+                <h2>Frontend Developer</h2>
+                <div class="socials">
+                    <a href="https://drive.google.com/file/d/1sqDne9NgNwQWhF8tw6LTuZ60caPPE6jH/view?usp=sharing" class="fa-brands fa-linkedin-in" id="profile-link"></a>
+                </div>
+                <a href="" class="cta">Preuzmi CV</a>
+            </section>
+
+            <script>
+                document.querySelector('.cta').addEventListener('click', function(event) {
+                  event.preventDefault();
+                  var pdfUrl = "https://drive.google.com/file/d/1sqDne9NgNwQWhF8tw6LTuZ60caPPE6jH/view?usp=sharing";
+                  var link = document.createElement('a');
+                  link.href = pdfUrl;
+                  link.download = "Preuzmi CV.pdf";
+                  link.target = '_blank';
+                  link.click();
+                });
+              </script>
+            
+
+            <!--=============== CONTENT SECTION ===============-->
+
+            <div class="content">
+                <!--=============== HOME ===============-->
+
+                <section class="content-card home" id="welcome-section">
+                    <h1>Pozdrav, ja sam Zrinka</h1>
+                    <br><br>
+
+                    <i class="fa-solid fa-phone"></i>
+                    <p>+385 99 5187 611</p>
+                    <br>
+
+                    <i class="fa-solid fa-house"></i>
+                    <p>Zagreb, Hrvatska</p>
+                    <br>
+
+                    <i class="fa-solid fa-cake-candles"></i>
+                    <p>01.11.1996</p>
+                    <br>
+                </section>
+
+                <!--=============== ABOUT ME ===============-->
+
+                <section class="content-card about" id="about">
+                    <h1>O meni</h1>
+                    <div class="about-item about-me">
+                        <p>
+                            Ja sam produktivna i organizirana osoba koja je fleksibilna.
+                             Željna sam učenja i stjecanja novih vještina. Iz dosadašnjeg radnog iskustva mogu sa sigurnošću 
+                             reći da se slažem s različitim grupama ljudi, što me čini odličnim timskim igračem. 
+                             
+                        </p>
+                        <p>
+                            Također sam sposobna raditi sama i van ureda ako je potrebno.
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <div class="about-item skills">
+                            <h1>Vještine</h1>
+                            <span class="skill">HTML</span>
+                            <span class="skill">CSS</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">Python</span>
+                            <span class="skill">SQL</span>
+                            <span class="skill">qml</span>
+                            <span class="skill">MS Office</span>
+                            <span class="skill">Project management</span>
+                            <span class="skill">Public speaking</span>
+                            <span class="skill">Administrativne vještine</span>
+                            <span class="skill">Rješenje problema</span>
+                        </div>
+
+                        <div class="about-item languages">
+                            <h1>Languages</h1>
+                            <div class="language">
+                                <p>Hrvatski - C2</p>
+                                <span class="bar"><span class="polish"></span></span>
+                            </div>
+                            <div class="language">
+                                <p>engleski - C1</p>
+                                <span class="bar"><span class="english"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!--=============== PROJECTS ===============-->
+
+                <section class="content-card projects" id="projects">
+                    <h1>Projekti</h1>
+                    <div class="col-2 project-list">
+                        <div class="project-tile">
+                            <video src="login.mp4" alt=""></video>
+                        </div>
+                        <div class="project-tile">
+                            <video src="industrijsko sucelje.mp4" alt=""></video>
+                        </div>
+                        <div class="project-tile">
+                            <video src="python.mp4" alt=""></video>
+                        </div>
+                        <div class="project-tile">
+                            <video src="grid izbornik.mp4" alt=""></video>
+                        </div>
+                    </div>
+                </section>
+                <script>
+                const projectTiles = document.querySelectorAll('.project-tile');
+
+                projectTiles.forEach(tile => {
+                    const video = tile.querySelector('video');
+                    let videoWindow = null;
+
+                    tile.addEventListener('click', () => {
+                        if (!videoWindow) {
+                            const windowWidth = 1000;
+                            const windowHeight = 640;
+                            const left = (window.screen.width / 2) - (windowWidth / 2);
+                            const top = (window.screen.height / 2) - (windowHeight / 2);
+                            videoWindow = window.open('', 'Video', 'width=' + windowWidth + ',height=' + windowHeight + ',left=' + left + ',top=' + top);
+                            videoWindow.document.body.innerHTML = '<video src="' + video.src + '" controls autoplay style="width: 100%; height: 100%;"></video>';
+                        } else {
+                            videoWindow.close();
+                            videoWindow = null;
+                        }
+                    });
+
+                    tile.addEventListener('mouseover', () => {
+                        video.play();
+                    });
+
+                    tile.addEventListener('mouseout', () => {
+                        video.pause();
+                    });
+                });
+
+                </script>
+                
+
+                <!--=============== EXPERIENCE ===============-->
+
+                <section class="content-card experience" id="experience">
+                    <h1>Radno iskustvo</h1>
+                    <div class="timeline">
+                        <div class="timeline-items">
+                            <div class="timeline-item">
+                                <div class="timeline-date">2022 - Danas</div>
+                                <div class="timeline-content">
+                                    <h3>Qml developer CODEL | Travanj 2022- Danas</h3>
+                                    <p style="margin-top: 10px">Stvaranje korisničkog sučelja za desktop aplikacije</p>
+                                    <p>Osigurala sam da se korisničko sučelje i funkcionalnosti budu u skladu s potrebama kupaca</p>
+                                        <p> Rad s drugim programerima i zajedničko stvaranje rješenja</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2021 - 2022</div>
+                                <div class="timeline-content">
+                                    <h3> Administrator CODEL | Studeni 2021 - Travanj 2022 </h3>
+                                    <p style="margin-top: 10px">Izrada raznih pravnih dokumenata</p>
+                                    <p> Organizacija ureda</p>
+                                        <p> Organiziranje procesa zapošljavanja (intervjuiranje kandidata, proces zapošljavanja, uvod u poslovanje itd.)</p>
+                                            <p>  Pratila da li se poštuju smjernice GDPR-a</p>
+                                                <p>  Pisanje bilješki sa sastanaka, organiziranje sastanaka, </p>
+                                                    <p> Komunikacija s klijentima i poslovnim partnerima</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                                <!--=============== EDUCATION ===============-->
+                                <section class="content-card-education" id="education">
+                                    <h1 style="margin-left: 350px">Školovanje</h1>
+                                    <div class="grid-container">
+                                        <div class="grid-item" onclick="location.href='https://effectus.com.hr/analiticki-menadzment/';">
+                                          <h3>Poslovno upravljanje 
+                                            Effectus Visoko učilište | Analitički menadžment</h3>
+                                            <br>
+                                            <p>Analiza marketinških trendova (velike korporacije, TV reklame, itd...)</p>
+                                            <p>Stvaranje novih i inovativnih rješenja</p>
+                                            <p>Učenje načina menadžmenta organizacije</p>
+                                          </div>
+                                        <div class="grid-item" onclick="location.href='https://effectus.com.hr/financije-i-poslovno-pravo/';">
+                                          <h3>Ekonomija
+                                            Effectus Visoko učilište | Financije i pravo</h3>
+                                            <br>
+                                            <p>Osnovna znanja iz ekonomije, knjigovodstva i računovodstva </p>
+                                            <p>Razumijevanje zakona i njihova primjena</p>
+                                    </div>
+                                        <div class="grid-item" onclick="location.href='https://effectus.com.hr/';">
+                                          <h3>Menadžment kroz emocionalnu inteligenciju |  Effectus Visoko učilište</h3>
+                                          <br>
+                                          <p>Osnovno razumijevanje emocionalne inteligencije u organizaciji</p>
+                                            <p>Učinkovitost timova i organizacijska kultura</p></div>
+                                        <div class="grid-item" onclick="location.href='https://effectus.com.hr/';">
+                                            <h3>Menadžment kompetencija | Effectus Visoko učilište</h3>
+                                            <br>
+                                          <p>Upravljanje timovima i pojedincima i njihovim kompetencijama</p>
+                                          <p>Jasna komunikacija i timska motivacija</p>
+                                        </div>
+                                        <div class="grid-item" onclick="location.href='https://www.algebra.hr/cjelozivotno-obrazovanje/programi/python-developer/';">
+                                            <h3>Python developer | Algebra</h3>
+                                            <br>
+                                          <p>Izrada sučelja i raznih vrsta računalnih programa./p>
+                                          <p>Povezati baze podataka s programima.</p></div>
+                                        <!-- <div class="grid-item" onclick="location.href='https://example.com/page6';">Cell 6</div>-->
+                                      </div>
+                                  </section>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
